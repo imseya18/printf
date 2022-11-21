@@ -64,6 +64,6 @@ re: fclean $(NAME)
 $(NAME): $(SOURCES) $(OBJECTS)
 	ar rc $(NAME) $(OBJECTS)
 
-bonus: $(SOURCES_BONUS) $(OBJECTS_BONUS)
+bonus: $(SOURCES_BONUS) $(OBJECTS_BONUS) $(NAME)
 	ar rc $(NAME) $(OBJECTS_BONUS)
 

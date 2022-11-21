@@ -1,55 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_annexes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 15:38:44 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/21 17:06:05 by mmorue           ###   ########.fr       */
+/*   Created: 2022/11/18 13:34:59 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/21 16:42:23 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	get_size_hexa(unsigned int new)
+static int	get_size(unsigned int new)
 {
 	int	size;
 
 	size = 0;
-	while (new >= 16)
+	while (new >= 10)
 	{
-		new = new / 16;
+		new = new / 10;
 		size++;
 	}
 	size++;
 	return (size);
 }
 
-static char	*fill_tab_hexa(char *str, unsigned int new, unsigned int i)
+static char	*fill_tab(char *str, unsigned int new, unsigned int i)
 {
 	str[i--] = '\0';
 	while (new != 0)
 	{
-		str[i] = "0123456789abcdef"[new % 16];
-		new = new / 16;
+		str[i] = (new % 10) + '0';
+		new = new / 10;
 		i--;
 	}
 	return (str);
 }
 
-char	*ft_itoa_hexa(unsigned int n)
+char	*ft_itoa_u(unsigned int n)
 {
 	unsigned int	i;
 	unsigned int	new;
 	char			*str;
 
 	new = n;
-	i = get_size_hexa(new);
+	i = get_size(new);
 	str = malloc((i + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	if (n == 0)
 		str[0] = '0';
-	return (fill_tab_hexa(str, new, i));
+	return (fill_tab(str, new, i));
 }

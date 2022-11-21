@@ -6,11 +6,11 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:39:15 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/18 16:53:15 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/21 16:42:24 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 p_list	*ft_lstnew_pf(void *content)
 {
@@ -21,6 +21,7 @@ p_list	*ft_lstnew_pf(void *content)
 		return (0);
 	new->content = content;
 	new->next = NULL;
+	new->size = 0;
 	return (new);
 }
 
@@ -63,4 +64,13 @@ int	ft_lstsize_pf(p_list *lst)
 		i++;
 	}	
 	return (i);
+}
+
+void	ft_lstdelone_pf(p_list *lst)
+{
+	if (lst == 0)
+		return ;
+	if (lst->content != 0)
+		free(lst->content);
+	free(lst);
 }

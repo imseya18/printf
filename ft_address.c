@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_address.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 15:38:44 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/21 17:06:05 by mmorue           ###   ########.fr       */
+/*   Created: 2022/11/21 16:45:38 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/21 17:06:06 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	get_size_hexa(unsigned int new)
+static int	get_size_address(unsigned long new)
 {
 	int	size;
 
@@ -26,8 +26,10 @@ static int	get_size_hexa(unsigned int new)
 	return (size);
 }
 
-static char	*fill_tab_hexa(char *str, unsigned int new, unsigned int i)
-{
+static char	*fill_tab_address(char *str, unsigned long new, unsigned long i)
+{	
+	str[0] = '0';
+	str[1] = 'x';
 	str[i--] = '\0';
 	while (new != 0)
 	{
@@ -38,18 +40,18 @@ static char	*fill_tab_hexa(char *str, unsigned int new, unsigned int i)
 	return (str);
 }
 
-char	*ft_itoa_hexa(unsigned int n)
+char	*ft_itoa_adress(void *n)
 {
-	unsigned int	i;
-	unsigned int	new;
+	unsigned long	i;
+	unsigned long	new;
 	char			*str;
 
 	new = n;
-	i = get_size_hexa(new);
-	str = malloc((i + 1) * sizeof(char));
+	i = get_size_address(new);
+	str = malloc((i + 3) * sizeof(char));
 	if (!str)
 		return (0);
 	if (n == 0)
 		str[0] = '0';
-	return (fill_tab_hexa(str, new, i));
+	return (fill_tab_address(str, new, i));
 }

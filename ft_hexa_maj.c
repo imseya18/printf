@@ -6,11 +6,11 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:47:05 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/18 16:53:17 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/21 17:06:04 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	get_size_maj(unsigned int new)
 {
