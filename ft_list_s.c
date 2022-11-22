@@ -6,16 +6,16 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:32:12 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/22 15:26:12 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/22 16:26:11 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_lstclear_pf(p_list **lst)
+void	ft_lstclear_pf(t_listpf **lst)
 {
-	p_list	*temp;
-	p_list	*new;
+	t_listpf	*temp;
+	t_listpf	*new;
 
 	if (lst == 0)
 		return ;

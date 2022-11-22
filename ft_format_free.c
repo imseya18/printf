@@ -6,16 +6,16 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:15:09 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/22 16:13:51 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/22 16:26:17 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_di(int i, p_list **start, int *error)
+int	ft_di(int i, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	*str;
+	t_listpf	*new;
+	char		*str;
 
 	str = ft_itoa(i);
 	if (str == NULL)
@@ -35,11 +35,11 @@ int	ft_di(int i, p_list **start, int *error)
 	return (ft_strlen(str));
 }
 
-int	ft_p(void *p, p_list **start, int *error)
+int	ft_p(void *p, t_listpf **start, int *error)
 {
-	p_list			*new;
-	char			*str;
-	unsigned long	i;
+	t_listpf			*new;
+	char				*str;
+	unsigned long		i;
 
 	i = (unsigned long)p;
 	str = ft_itoa_address(i);

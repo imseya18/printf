@@ -6,17 +6,17 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:08:09 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/22 16:14:19 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/22 16:26:18 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_char(char c, p_list **start, int *error)
+int	ft_char(char c, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	str[2];
-	char	*strn;
+	t_listpf	*new;
+	char		str[2];
+	char		*strn;
 
 	str[0] = c;
 	str[1] = '\0';
@@ -38,10 +38,10 @@ int	ft_char(char c, p_list **start, int *error)
 	return (1);
 }
 
-int	ft_string(char *str, p_list **start, int *error)
+int	ft_string(char *str, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	*strn;
+	t_listpf	*new;
+	char		*strn;
 
 	if (str == NULL)
 		strn = ft_strdup("(null)");
@@ -64,10 +64,10 @@ int	ft_string(char *str, p_list **start, int *error)
 	return (ft_strlen(strn));
 }
 
-int	ft_x_maj(unsigned int i, p_list **start, int *error)
+int	ft_x_maj(unsigned int i, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	*str;
+	t_listpf	*new;
+	char		*str;
 
 	str = ft_itoa_hexa_maj(i);
 	if (str == NULL)
@@ -87,10 +87,10 @@ int	ft_x_maj(unsigned int i, p_list **start, int *error)
 	return (ft_strlen(str));
 }
 
-int	ft_x(unsigned int i, p_list **start, int *error)
+int	ft_x(unsigned int i, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	*str;
+	t_listpf	*new;
+	char		*str;
 
 	str = ft_itoa_hexa(i);
 	if (str == NULL)
@@ -110,10 +110,10 @@ int	ft_x(unsigned int i, p_list **start, int *error)
 	return (ft_strlen(str));
 }
 
-int	ft_u(unsigned int i, p_list **start, int *error)
+int	ft_u(unsigned int i, t_listpf **start, int *error)
 {
-	p_list	*new;
-	char	*str;
+	t_listpf	*new;
+	char		*str;
 
 	str = ft_itoa_u(i);
 	if (str == NULL)

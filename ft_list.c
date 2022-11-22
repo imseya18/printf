@@ -6,17 +6,17 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:39:15 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/22 15:26:13 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/22 16:26:12 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-p_list	*ft_lstnew_pf(void *content)
+t_listpf	*ft_lstnew_pf(void *content)
 {
-	p_list	*new;
+	t_listpf	*new;
 
-	new = malloc(sizeof(p_list));
+	new = malloc(sizeof(t_listpf));
 	if (!new)
 		return (0);
 	new->content = content;
@@ -25,9 +25,9 @@ p_list	*ft_lstnew_pf(void *content)
 	return (new);
 }
 
-void	ft_lstadd_back_pf(p_list **lst, p_list *new)
+void	ft_lstadd_back_pf(t_listpf **lst, t_listpf *new)
 {
-	p_list	*temp;
+	t_listpf	*temp;
 
 	if (*lst == 0)
 	{
@@ -38,7 +38,7 @@ void	ft_lstadd_back_pf(p_list **lst, p_list *new)
 	temp->next = new;
 }
 
-p_list	*ft_lstlast_pf(p_list *lst)
+t_listpf	*ft_lstlast_pf(t_listpf *lst)
 {
 	int		i;
 	int		size;
@@ -53,7 +53,7 @@ p_list	*ft_lstlast_pf(p_list *lst)
 	return (lst);
 }
 
-int	ft_lstsize_pf(p_list *lst)
+int	ft_lstsize_pf(t_listpf *lst)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ int	ft_lstsize_pf(p_list *lst)
 	return (i);
 }
 
-void	ft_lstdelone_pf(p_list *lst)
+void	ft_lstdelone_pf(t_listpf *lst)
 {
 	if (lst == 0)
 		return ;
