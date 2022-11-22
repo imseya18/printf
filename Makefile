@@ -8,7 +8,9 @@ SOURCES =	ft_printf.c \
 			ft_hexa_maj.c \
 			ft_hexa.c \
 			ft_list_s.c \
-			ft_address.c
+			ft_address.c \
+			ft_format.c \
+			ft_format_free.c 
 
 
 OBJECTS = $(SOURCES:.c=.o)

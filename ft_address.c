@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:45:38 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/21 17:34:51 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/22 16:00:34 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static char	*fill_tab_address(char *str, unsigned long new, unsigned long i)
 	str[0] = '0';
 	str[1] = 'x';
 	str[i--] = '\0';
+	if (new == 0)
+		str[i] = '0';
 	while (new != 0)
 	{
 		str[i] = "0123456789abcdef"[new % 16];
@@ -40,18 +42,16 @@ static char	*fill_tab_address(char *str, unsigned long new, unsigned long i)
 	return (str);
 }
 
-char	*ft_itoa_adress(void *n)
+char	*ft_itoa_address(unsigned long n)
 {
 	unsigned long	i;
-	unsigned long	new;
 	char			*str;
 
-	new = n;
-	i = get_size_address(new);
+	i = get_size_address(n);
 	str = malloc((i + 3) * sizeof(char));
 	if (!str)
 		return (0);
 	if (n == 0)
 		str[0] = '0';
-	return (fill_tab_address(str, new, i));
+	return (fill_tab_address(str, n, i + 2));
 }
